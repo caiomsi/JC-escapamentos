@@ -17,9 +17,9 @@
   --muted-2:    #6e757e;
 
   /* Accents — exhaust / welding heat */
-  --ember:        #ff6a1a;
-  --ember-bright: #ff9148;
-  --ember-deep:   #cf4708;
+  --ember:        #e0231c;
+  --ember-bright: #ff5247;
+  --ember-deep:   #9c0f10;
   --steel:        #cfd4da;   /* chrome */
   --steel-dim:    #868d96;
   --hazard:       #f4b223;
@@ -105,8 +105,8 @@ h1, h2, h3, h4 {
   white-space: nowrap;
 }
 .btn svg { flex: none; }
-.btn--primary { background: var(--ember-grad); color: #1a1205; box-shadow: 0 12px 28px rgba(255,106,26,.32); }
-.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(255,106,26,.46); }
+.btn--primary { background: var(--ember-grad); color: #fff; box-shadow: 0 12px 28px rgba(224,35,28,.32); }
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(224,35,28,.46); }
 .btn--whats { background: #1f2a24; color: #b8f0cf; border-color: rgba(120,230,170,.3); }
 .btn--whats:hover { transform: translateY(-2px); background: #25382e; color: #d3ffe7; }
 .btn--ghost { background: transparent; color: var(--paper); border-color: var(--line); }
@@ -156,10 +156,10 @@ h1, h2, h3, h4 {
 .nav__links a:not(.nav__cta):hover { color: var(--ember-bright); }
 .nav__links a:not(.nav__cta):hover::after { width: 100%; }
 .nav__cta {
-  background: var(--ember-grad); color: #1a1205 !important; padding: .58rem 1.1rem;
+  background: var(--ember-grad); color: #fff !important; padding: .58rem 1.1rem;
   border-radius: 999px; font-weight: 700;
 }
-.nav__cta:hover { box-shadow: 0 8px 20px rgba(255,106,26,.4); }
+.nav__cta:hover { box-shadow: 0 8px 20px rgba(224,35,28,.4); }
 
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; width: 40px; height: 40px; padding: 8px; }
 .nav-toggle span { display: block; height: 2.4px; background: var(--paper); border-radius: 2px; margin: 5px 0; transition: transform .3s ease, opacity .25s ease; }
@@ -174,14 +174,14 @@ h1, h2, h3, h4 {
 .hero__overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
-    radial-gradient(120% 90% at 80% 110%, rgba(255,106,26,.34), transparent 55%),
+    radial-gradient(120% 90% at 80% 110%, rgba(224,35,28,.34), transparent 55%),
     linear-gradient(90deg, rgba(14,16,20,.94) 0%, rgba(14,16,20,.78) 42%, rgba(14,16,20,.35) 100%),
     linear-gradient(0deg, rgba(14,16,20,.95), rgba(14,16,20,.1) 60%);
 }
 .hero__inner { position: relative; z-index: 2; width: min(100% - 2.4rem, var(--maxw)); margin-inline: auto; padding-top: 80px; }
 .kicker { display: inline-flex; align-items: center; gap: .55rem; margin-bottom: 1.3rem; }
-.kicker__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 0 4px rgba(255,106,26,.22); animation: pulse 2.4s infinite; }
-@keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(255,106,26,.22); } 50% { box-shadow: 0 0 0 9px rgba(255,106,26,0); } }
+.kicker__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 0 4px rgba(224,35,28,.22); animation: pulse 2.4s infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(224,35,28,.22); } 50% { box-shadow: 0 0 0 9px rgba(224,35,28,0); } }
 .hero__title { font-size: clamp(2.9rem, 8.4vw, 6.4rem); letter-spacing: 0; margin-bottom: 1.4rem; text-shadow: 0 8px 40px rgba(0,0,0,.45); }
 .hero__lead { color: #d8dce1; font-size: clamp(1.05rem, 1.8vw, 1.28rem); max-width: 56ch; margin-bottom: 2.1rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; }
@@ -190,7 +190,7 @@ h1, h2, h3, h4 {
 @keyframes scrolldown { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
 /* ===================== TRUST STRIP ===================== */
-.strip { background: var(--ember-grad); color: #1a1205; position: relative; }
+.strip { background: var(--ember-grad); color: #fff; position: relative; }
 .strip::before, .strip::after { content: ""; position: absolute; left: 0; right: 0; height: 6px; background: var(--hazard-stripe); }
 .strip::before { top: 0; } .strip::after { bottom: 0; }
 .strip__inner {
@@ -211,9 +211,9 @@ h1, h2, h3, h4 {
   transition: transform .22s ease, border-color .22s ease, box-shadow .25s ease;
 }
 .card::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 3px; background: var(--ember-grad); transform: scaleX(0); transform-origin: left; transition: transform .3s ease; }
-.card:hover { transform: translateY(-5px); border-color: rgba(255,106,26,.4); box-shadow: var(--shadow-sm); }
+.card:hover { transform: translateY(-5px); border-color: rgba(224,35,28,.4); box-shadow: var(--shadow-sm); }
 .card:hover::before { transform: scaleX(1); }
-.card__ico { width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,106,26,.12); border: 1px solid rgba(255,106,26,.25); margin-bottom: 1.2rem; color: var(--ember-bright); }
+.card__ico { width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; background: rgba(224,35,28,.12); border: 1px solid rgba(224,35,28,.25); margin-bottom: 1.2rem; color: var(--ember-bright); }
 .card__ico svg { width: 28px; height: 28px; }
 .card h3 { font-size: 1.34rem; margin-bottom: .55rem; letter-spacing: .02em; }
 .card p { color: var(--muted); font-size: .98rem; }
@@ -270,7 +270,7 @@ h1, h2, h3, h4 {
   border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 0 1.3rem;
   transition: border-color .2s ease;
 }
-.faq details[open] { border-color: rgba(255,106,26,.4); }
+.faq details[open] { border-color: rgba(224,35,28,.4); }
 .faq summary {
   list-style: none; cursor: pointer; font-weight: 700; font-size: 1.06rem;
   padding: 1.15rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
@@ -286,7 +286,7 @@ h1, h2, h3, h4 {
 .contact__lead { color: var(--muted); margin: 1rem 0 1.8rem; max-width: 46ch; }
 .contact__list { display: grid; gap: 1.1rem; margin-bottom: 1.8rem; }
 .contact__list li { display: flex; gap: 1rem; align-items: flex-start; }
-.contact__ico { width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center; background: rgba(255,106,26,.12); border: 1px solid rgba(255,106,26,.25); color: var(--ember-bright); flex: none; }
+.contact__ico { width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center; background: rgba(224,35,28,.12); border: 1px solid rgba(224,35,28,.25); color: var(--ember-bright); flex: none; }
 .contact__ico svg { width: 22px; height: 22px; }
 .contact__list .mono { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--steel-dim); margin-bottom: .15rem; }
 .contact__list a { font-weight: 600; transition: color .2s; }
