@@ -22,6 +22,7 @@
     var setMenu = function (open) {
       toggle.classList.toggle("open", open);
       links.classList.toggle("open", open);
+      document.body.classList.toggle("menu-open", open); // lock background scroll
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
     };
@@ -32,9 +33,17 @@
     links.addEventListener("click", function (e) {
       if (e.target.closest("a")) setMenu(false);
     });
+    // close when tapping anywhere outside the nav
+    document.addEventListener("click", function (e) {
+      if (links.classList.contains("open") && !e.target.closest(".nav")) setMenu(false);
+    });
     // close on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") setMenu(false);
+    });
+    // never leave the mobile menu stuck open when resizing up to desktop
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 760 && links.classList.contains("open")) setMenu(false);
     });
   }
 
