@@ -149,9 +149,7 @@ h1, h2, h3, h4 {
   height: 72px;
 }
 .brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--paper); }
-.brand__mark { width: 36px; height: 36px; color: var(--ember); flex: none; }
-.brand__text { font-family: var(--font-display); font-size: 1.32rem; letter-spacing: .03em; text-transform: uppercase; }
-.brand__text strong { color: var(--ember); font-weight: 400; }
+.brand__logo { height: 46px; width: auto; display: block; }
 
 .nav__links { display: flex; align-items: center; gap: 1.7rem; }
 .nav__links a { font-weight: 600; font-size: .96rem; color: var(--paper); position: relative; transition: color .2s; }
@@ -161,6 +159,14 @@ h1, h2, h3, h4 {
 }
 .nav__links a:not(.nav__cta):hover { color: var(--steel-bright); }
 .nav__links a:not(.nav__cta):hover::after { width: 100%; }
+.nav__ig {
+  display: inline-flex; align-items: center; gap: .4rem; color: var(--steel) !important;
+  transition: color .2s ease;
+}
+.nav__ig:hover { color: var(--steel-bright) !important; }
+.nav__ig svg { flex: none; }
+.nav__ig-txt { display: none; }
+
 .nav__cta {
   background: var(--ember-grad); color: #fff !important; padding: .58rem 1.1rem;
   border-radius: 999px; font-weight: 700;
@@ -357,6 +363,7 @@ h1, h2, h3, h4 {
   .nav__links.open { transform: translateY(0); pointer-events: auto; }
   .nav__links a { padding: .95rem .2rem; border-bottom: 1px solid var(--line-soft); }
   .nav__links a:not(.nav__cta)::after { display: none; }
+  .nav__ig-txt { display: inline; }
   .nav__cta { text-align: center; margin-top: .8rem; }
   .strip__inner { grid-template-columns: repeat(2, 1fr); gap: .8rem 1rem; }
   .strip__item { font-size: .9rem; }
