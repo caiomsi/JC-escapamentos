@@ -71,7 +71,9 @@
     var playlist = [
       "videos/drone-2.mp4",
       "videos/drone-3.mp4",
-      "videos/drone-1.mp4"
+      "videos/drone-1.mp4",
+      "videos/hero-2.mp4",
+      "videos/hero-1.mp4"
     ];
     var currentIdx = 0;
     heroVideo.addEventListener("ended", function () {
