@@ -65,6 +65,22 @@
     }
   }
 
+  /* ---- hero video playlist: cycle through drone clips ---- */
+  var heroVideo = document.querySelector(".hero__video");
+  if (heroVideo) {
+    var playlist = [
+      "videos/drone-2.mp4",
+      "videos/drone-3.mp4",
+      "videos/drone-1.mp4"
+    ];
+    var currentIdx = 0;
+    heroVideo.addEventListener("ended", function () {
+      currentIdx = (currentIdx + 1) % playlist.length;
+      heroVideo.src = playlist[currentIdx];
+      heroVideo.play().catch(function () {});
+    });
+  }
+
   /* ---- dynamic footer year ---- */
   var year = document.getElementById("ano");
   if (year) year.textContent = String(new Date().getFullYear());
