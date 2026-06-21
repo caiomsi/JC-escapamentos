@@ -1,3 +1,6 @@
 .DS_Store
 Thumbs.db
 *.log
+
+# raw originals from the owner — optimized copies go into images/ & videos/
+_incoming/
