@@ -367,11 +367,12 @@ h1, h2, h3, h4 {
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .gallery__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 200px 200px 200px;
+    grid-template-rows: repeat(5, 210px);
     grid-template-areas:
       "caminhao  caminhao"
       "solda     silenc"
       "ponteiras estoque"
+      "filtro    filtro"
       "drone     drone";
   }
 }
@@ -402,11 +403,12 @@ h1, h2, h3, h4 {
   .footer__grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .gallery__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 190px);
+    grid-template-rows: repeat(5, 190px);
     grid-template-areas:
       "caminhao  caminhao"
       "solda     silenc"
       "ponteiras estoque"
+      "filtro    filtro"
       "drone     drone";
   }
 }
