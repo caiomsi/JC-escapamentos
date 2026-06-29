@@ -83,6 +83,41 @@
     });
   }
 
+  /* ---- lightbox ---- */
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  var lbClose = document.getElementById('lbClose');
+  if (lb && lbImg && lbClose) {
+    function openLb(src, cap) {
+      lbImg.src = src;
+      lbImg.alt = cap || '';
+      if (lbCap) lbCap.textContent = cap || '';
+      lb.classList.add('lightbox--open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      lb.classList.remove('lightbox--open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+    document.querySelectorAll('.ga').forEach(function (fig) {
+      fig.addEventListener('click', function () {
+        var img = fig.querySelector('img');
+        var cap = fig.querySelector('figcaption');
+        if (img) openLb(img.src, cap ? cap.textContent : '');
+      });
+    });
+    document.querySelectorAll('.card--photo').forEach(function (card) {
+      card.addEventListener('click', function () {
+        openLb(card.dataset.lbSrc, card.dataset.lbCap);
+      });
+    });
+    lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+  }
+
   /* ---- dynamic footer year ---- */
   var year = document.getElementById("ano");
   if (year) year.textContent = String(new Date().getFullYear());
