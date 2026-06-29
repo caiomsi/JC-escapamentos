@@ -83,7 +83,52 @@
     });
   }
 
-  /* ---- lightbox ---- */
+  /* ---- service panel ---- */
+  var serviceData = {
+    '1': { title: 'Limpeza de catalisadores',       desc: 'Especialistas em limpeza de catalisadores e filtros DPF para caminhões e veículos pesados a diesel. Processo com jato d\'água de alta pressão, sem desmontagem do motor.',        type: 'video', src: 'videos/servico-1.mp4' },
+    '2': { title: 'Troca de Pedra/Cerâmica catalítica', desc: 'Substituição do substrato cerâmico do catalisador, restaurando o desempenho do sistema de pós-tratamento. Peças de qualidade e encaixe garantido.',                           type: 'image', src: 'images/troca-ceramica-catalitica.jpg' },
+    '3': { title: 'Instalação e manutenção de escapamentos', desc: 'Atendemos toda a linha pesada: caminhões, carretas, ônibus e utilitários diesel. Do conserto emergencial à fabricação e instalação completa do sistema de escapamento.', type: 'image', src: 'images/caminhao-em-servico.jpg' },
+    '4': { title: 'Adaptação de Ponteiras Cromadas', desc: 'Fabricação e adaptação de ponteiras cromadas sob medida, com acabamento caprichado e encaixe perfeito para qualquer modelo de caminhão.',                                           type: 'image', src: 'images/ponteiras-cromadas.jpg' }
+  };
+  var spPanel = document.getElementById('servicePanel');
+  var spTitle = document.getElementById('spTitle');
+  var spDesc  = document.getElementById('spDesc');
+  var spMedia = document.getElementById('spMedia');
+  var spClose = document.getElementById('spClose');
+  var activeServiceCard = null;
+  if (spPanel && spTitle && spMedia) {
+    function openPanel(card, svc) {
+      spTitle.textContent = svc.title;
+      spDesc.textContent  = svc.desc;
+      if (svc.type === 'video') {
+        spMedia.innerHTML = '<video src="' + svc.src + '" autoplay muted playsinline loop></video>';
+      } else {
+        spMedia.innerHTML = '<img src="' + svc.src + '" alt="' + svc.title + '" loading="lazy">';
+      }
+      spPanel.classList.add('service-panel--open');
+      setTimeout(function () { spPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 60);
+    }
+    function closePanel() {
+      spPanel.classList.remove('service-panel--open');
+      if (activeServiceCard) { activeServiceCard.classList.remove('active'); activeServiceCard = null; }
+      spMedia.innerHTML = '';
+    }
+    document.querySelectorAll('.service-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var svc = serviceData[card.dataset.service];
+        if (!svc) return;
+        if (activeServiceCard === card) { closePanel(); return; }
+        if (activeServiceCard) activeServiceCard.classList.remove('active');
+        activeServiceCard = card;
+        card.classList.add('active');
+        openPanel(card, svc);
+      });
+    });
+    if (spClose) spClose.addEventListener('click', closePanel);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
+  }
+
+  /* ---- lightbox (gallery only) ---- */
   var lb = document.getElementById('lightbox');
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
@@ -108,14 +153,9 @@
         if (img) openLb(img.src, cap ? cap.textContent : '');
       });
     });
-    document.querySelectorAll('.card--photo').forEach(function (card) {
-      card.addEventListener('click', function () {
-        openLb(card.dataset.lbSrc, card.dataset.lbCap);
-      });
-    });
     lbClose.addEventListener('click', closeLb);
     lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb.classList.contains('lightbox--open')) closeLb(); });
   }
 
   /* ---- dynamic footer year ---- */
