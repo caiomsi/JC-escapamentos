@@ -221,65 +221,35 @@
     <header class="section__head reveal">
       <p class="eyebrow"><span class="mono">// 01</span> O que fazemos</p>
       <h2 class="section__title">Serviços</h2>
-      <p class="section__sub">Clique em um serviço para ver mais.</p>
     </header>
 
-    <div class="cards">
-      <article class="card service-card reveal">
-        <button class="card__head" aria-expanded="false" data-service="1">
-          <span class="card__num mono">01</span>
-          <h3 class="card__title">Limpeza de catalisadores</h3>
-          <span class="card__toggle" aria-hidden="true">+</span>
+    <div class="srv reveal">
+      <div class="srv__nav" role="list" aria-label="Serviços">
+        <button class="srv__item" data-srv="1" role="listitem">
+          <span class="srv__num mono">01</span>
+          <span class="srv__name">Limpeza de catalisadores</span>
         </button>
-        <div class="card__expand">
-          <div class="card__expand-grid">
-            <p class="card__desc"></p>
-            <div class="card__media"></div>
-          </div>
-        </div>
-      </article>
+        <button class="srv__item" data-srv="2" role="listitem">
+          <span class="srv__num mono">02</span>
+          <span class="srv__name">Troca de Pedra/Cerâmica catalítica</span>
+        </button>
+        <button class="srv__item" data-srv="3" role="listitem">
+          <span class="srv__num mono">03</span>
+          <span class="srv__name">Instalação e manutenção de escapamentos</span>
+        </button>
+        <button class="srv__item" data-srv="4" role="listitem">
+          <span class="srv__num mono">04</span>
+          <span class="srv__name">Adaptação de Ponteiras Cromadas</span>
+        </button>
+      </div>
 
-      <article class="card service-card reveal">
-        <button class="card__head" aria-expanded="false" data-service="2">
-          <span class="card__num mono">02</span>
-          <h3 class="card__title">Troca de Pedra/Cerâmica catalítica</h3>
-          <span class="card__toggle" aria-hidden="true">+</span>
-        </button>
-        <div class="card__expand">
-          <div class="card__expand-grid">
-            <p class="card__desc"></p>
-            <div class="card__media"></div>
-          </div>
+      <div class="srv__panel">
+        <div class="srv__media" id="srvMedia"></div>
+        <div class="srv__body">
+          <h3 class="srv__title" id="srvTitle"></h3>
+          <p class="srv__desc" id="srvDesc"></p>
         </div>
-      </article>
-
-      <article class="card service-card reveal">
-        <button class="card__head" aria-expanded="false" data-service="3">
-          <span class="card__num mono">03</span>
-          <h3 class="card__title">Instalação e manutenção de escapamentos</h3>
-          <span class="card__toggle" aria-hidden="true">+</span>
-        </button>
-        <div class="card__expand">
-          <div class="card__expand-grid">
-            <p class="card__desc"></p>
-            <div class="card__media"></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="card service-card reveal">
-        <button class="card__head" aria-expanded="false" data-service="4">
-          <span class="card__num mono">04</span>
-          <h3 class="card__title">Adaptação de Ponteiras Cromadas</h3>
-          <span class="card__toggle" aria-hidden="true">+</span>
-        </button>
-        <div class="card__expand">
-          <div class="card__expand-grid">
-            <p class="card__desc"></p>
-            <div class="card__media"></div>
-          </div>
-        </div>
-      </article>
+      </div>
     </div>
   </div>
 </section>

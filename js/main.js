@@ -83,44 +83,34 @@
     });
   }
 
-  /* ---- service cards accordion ---- */
-  var serviceData = {
-    '1': { desc: 'Limpeza de catalisadores e filtros DPF com jato de água de alta pressão, sem desmontagem do motor. Serviço especializado para caminhões e veículos pesados a diesel.', type: 'video', src: 'videos/servico-1.mp4' },
-    '2': { desc: 'Substituição do substrato cerâmico do catalisador, restaurando o desempenho do sistema de pós-tratamento. Peças de qualidade com encaixe garantido.',                  type: 'image', src: 'images/troca-ceramica-catalitica.jpg' },
-    '3': { desc: 'Atendemos toda a linha pesada: caminhões, carretas, ônibus e utilitários diesel. Do conserto emergencial à fabricação e instalação completa do sistema de escapamento.',  type: 'image', src: 'images/caminhao-em-servico.jpg' },
-    '4': { desc: 'Fabricação e adaptação de ponteiras cromadas sob medida, com acabamento caprichado e encaixe perfeito para qualquer modelo de caminhão.',                                 type: 'image', src: 'images/ponteiras-cromadas.jpg' }
+  /* ---- services panel ---- */
+  var srvData = {
+    '1': { title: 'Limpeza de catalisadores',         desc: 'Limpeza de catalisadores e filtros DPF com jato de água de alta pressão, sem necessidade de desmontagem do motor. Serviço especializado para caminhões e veículos pesados a diesel.',    type: 'video', src: 'videos/servico-1.mp4' },
+    '2': { title: 'Troca de Pedra/Cerâmica catalítica', desc: 'Substituição do substrato cerâmico do catalisador, restaurando o desempenho do sistema de pós-tratamento de gases. Peças de qualidade com encaixe garantido.',                           type: 'image', src: 'images/troca-ceramica-catalitica.jpg' },
+    '3': { title: 'Instalação e manutenção de escapamentos', desc: 'Atendemos toda a linha pesada: caminhões, carretas, ônibus e utilitários diesel. Do conserto emergencial à fabricação e instalação completa do sistema de escapamento.',             type: 'image', src: 'images/caminhao-em-servico.jpg' },
+    '4': { title: 'Adaptação de Ponteiras Cromadas',  desc: 'Fabricação e adaptação de ponteiras cromadas sob medida, com acabamento caprichado e encaixe perfeito para qualquer modelo de caminhão.',                                                   type: 'image', src: 'images/ponteiras-cromadas.jpg' }
   };
-  document.querySelectorAll('.service-card').forEach(function (card) {
-    var btn    = card.querySelector('.card__head');
-    var desc   = card.querySelector('.card__desc');
-    var media  = card.querySelector('.card__media');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var isOpen = card.classList.contains('active');
-      document.querySelectorAll('.service-card').forEach(function (c) {
-        c.classList.remove('active');
-        var b = c.querySelector('.card__head');
-        if (b) b.setAttribute('aria-expanded', 'false');
-        var m = c.querySelector('.card__media');
-        if (m) m.innerHTML = '';
-      });
-      if (!isOpen) {
-        var svc = serviceData[btn.dataset.service];
-        if (!svc) return;
-        card.classList.add('active');
-        btn.setAttribute('aria-expanded', 'true');
-        if (desc) desc.textContent = svc.desc;
-        if (media) {
-          if (svc.type === 'video') {
-            media.innerHTML = '<video src="' + svc.src + '" autoplay muted playsinline loop></video>';
-          } else {
-            media.innerHTML = '<img src="' + svc.src + '" alt="" loading="lazy">';
-          }
-        }
-        setTimeout(function () { card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }, 320);
-      }
+  var srvMedia = document.getElementById('srvMedia');
+  var srvTitle = document.getElementById('srvTitle');
+  var srvDesc  = document.getElementById('srvDesc');
+  function activateSrv(id) {
+    var svc = srvData[id];
+    if (!svc || !srvMedia) return;
+    document.querySelectorAll('.srv__item').forEach(function (b) {
+      b.classList.toggle('active', b.dataset.srv === id);
     });
+    if (svc.type === 'video') {
+      srvMedia.innerHTML = '<video src="' + svc.src + '" autoplay muted playsinline loop></video>';
+    } else {
+      srvMedia.innerHTML = '<img src="' + svc.src + '" alt="' + svc.title + '" loading="lazy">';
+    }
+    if (srvTitle) srvTitle.textContent = svc.title;
+    if (srvDesc)  srvDesc.textContent  = svc.desc;
+  }
+  document.querySelectorAll('.srv__item').forEach(function (btn) {
+    btn.addEventListener('click', function () { activateSrv(btn.dataset.srv); });
   });
+  activateSrv('1');
 
   /* ---- lightbox (gallery only) ---- */
   var lb = document.getElementById('lightbox');
